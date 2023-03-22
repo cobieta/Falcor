@@ -1,4 +1,5 @@
 Bin/*
+external/*
 *.user
 *.sdf
 *.opensdf
