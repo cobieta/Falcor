@@ -164,6 +164,7 @@ void GaussianBlur::createTmpFbo(const Texture* pSrc)
     {
         Fbo::Desc fboDesc;
         fboDesc.setColorTarget(0, srcFormat);
+        //fboDesc.setColorTarget(0, Falcor::ResourceFormat::RGBA32Float);
         mpTmpFbo = Fbo::create2D(pSrc->getWidth(), pSrc->getHeight(), fboDesc, pSrc->getArraySize());
     }
 }
