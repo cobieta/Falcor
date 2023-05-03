@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="FDoG.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FDoG.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ShaderSource Include="STGaussian.ps.slang" />
+    <ShaderSource Include="StrucTensColourChecker.ps.slang" />
+    <ShaderSource Include="FDoGorthogonalBlur.ps.slang" />
+    <ShaderSource Include="FDoGLICBlur.ps.slang" />
+    <ShaderSource Include="STcommonMath.slang" />
+    <ShaderSource Include="ColourConverters.slang" />
+    <ShaderSource Include="OABilateralFilter.ps.slang" />
+    <ShaderSource Include="FinalBlend.ps.slang" />
+  </ItemGroup>
+</Project>

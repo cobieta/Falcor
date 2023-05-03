@@ -201,6 +201,19 @@ void KuwaharaFilter::execute(RenderContext* pRenderContext, const RenderData& re
         perFrameCB["gAlpha"] = mAlpha;
         perFrameCB["gZeta"] = mZeta / mKernelRadius; // Zeta is the value mZeta divided by the kernel radius.
         perFrameCB["gEta"] = calulateEta();
+
+        
+        // Precalculated weights test.
+        /*
+        Buffer::SharedPtr pBuf = Buffer::createTyped<float>(32, Resource::BindFlags::ShaderResource);
+        for (uint32_t i = 0; i < 32; i++)
+        {
+            float w = 0.5f;
+            pBuf->setElement(i, w);
+        }
+        perFrameCB["weights"] = pBuf;
+        */
+
         mpKuwahara["gTensorTex"] = mpGaussianFbo->getColorTexture(0);
         if (l > 0) {
             mpKuwahara["gSrcTex"] = mpKuwaharaFbo->getColorTexture(0);

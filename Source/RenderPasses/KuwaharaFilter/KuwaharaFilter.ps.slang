@@ -67,11 +67,11 @@ float4 main(ShaderPSIn pIn) : SV_TARGET0
 
             if (dot (v,v) <= 0.25f) { // Check the magnitude of the vector is <= sqrt(0.5), i.e, the pixel is inside the kernel
 
+                
                 uint width, height;
                 gSrcTex.GetDimensions(width, height);
                 float2 offset = float2(i / (float)width, j / (float)height);
                 float3 c = gSrcTex.Sample(gSampler, pIn.texC + offset).xyz;
-                //c = saturate(c); //TODO: Does this need to be here???
 
                 // Polynomial weight calculation.
                 float sum = 0;
@@ -95,7 +95,7 @@ float4 main(ShaderPSIn pIn) : SV_TARGET0
                 z = max(0, v.x + vyy); w[7] = z * z; sum += w[7];
 
                 float g = exp(-3.125f * dot(v,v)) / sum;
-
+                
                 for (int k = 0; k < 8; ++k) {
                     float wk = w[k] * g;
                     m[k] += float4(c * wk, wk);
